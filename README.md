@@ -8,8 +8,8 @@ Algotithm: is a set of instructions for completing a task
 
 ##### Binary search
 
-- binary searches input is an sorted list of elements
-- binary search eliminated half the list with each guess, if you want to guess a number between 1-100, with binary search you can guess it with a maximum of 7 guesses.
+- binary searches input is a sorted list of elements
+- binary search eliminates half the list with each guess, if you want to guess a number between 1-100, with binary search you can guess it with a maximum of 7 guesses.
 
 100 --> 50 --> 25 --> 13 --> 7 --> 4 --> 2 --> 1  (7 guesses)
 
@@ -17,7 +17,7 @@ Algotithm: is a set of instructions for completing a task
 
 Worst case: with simple search you are looking for the last word in the dictionary and it will take you 240000 guesses to get the word
 
-with Binary search: 240000 --> 120000 --> 60000 --> 30000 --> 15000 --> 7500 --> 3750 --> 1875 --> 938 --> 469 --> 235 --> 118 --> 59 --> 30 --> 15 --> 8 --> 4 --> 2 --> 1
+with Binary search (worst case): 240000 --> 120000 --> 60000 --> 30000 --> 15000 --> 7500 --> 3750 --> 1875 --> 938 --> 469 --> 235 --> 118 --> 59 --> 30 --> 15 --> 8 --> 4 --> 2 --> 1
 (19 guesses)
 
 
@@ -33,6 +33,7 @@ check [binary_search.py](binary_search.py) for how to do it in python
 | 4 billion items| 4 billion guesses | 32 guess     |
 <br>
 
+#### Big O worst case scenarios as n inceases
 ![Big O worst case scenarios](BigO-Worst-Case.webp)
 
 <br>
