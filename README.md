@@ -34,19 +34,19 @@ check [binary_search.py](binary_search.py) for how to do it in python
 <br>
 
 #### Big O worst case scenarios as n inceases
-![Big O worst case scenarios](BigO-Worst-Case.webp)
+![Big O worst case scenarios](pictures/BigO-Worst-Case.webp)
 
 <br>
 <br>
 <br>
 
-# Chapter 2
+## Chapter 2
 
 How the memory actualy works ?
 - The memory on your computer is like a set of drawers, and each drawer has an address
 <br>
 <br>
-![memory.png](memory.png)
+![memory.png](pictures/memory.png)
 <br>
 <br> 
 - fe0ffeab is the address for that slot in memory
@@ -81,4 +81,12 @@ Arrays are different you know the address for an item on the array, for example 
 - Inserting in the middle of the list is easy as you only need to change the address of the previous
 
 - for arrays you have to shift the elements down or up, and if there is no space you have to find a new location
+
+* Deletion
+- If you want to delete an element in a linked list it's simple you just have to chenge where the previous element points to
+- In an array every element has to shift up, However unlike insertion, it will always work (you never have to change its place in memory as minusing an element is different to adding one)
+
+arrays = standard access. lists = sequential access
+
+[simple sorting algorithm]()
 
