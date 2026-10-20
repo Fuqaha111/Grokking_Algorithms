@@ -15,10 +15,10 @@ def binary_search(n, target):
     while l <= r:
         mid = (l+r) // 2 # //2 instead of just /2 because the value must be integer (rounded)
 
-        if n [mid] == target:
+        if n[mid] == target:
             return mid
         
-        elif n [mid] > target:
+        elif n[mid] > target:
             r = mid - 1
         
         else: 

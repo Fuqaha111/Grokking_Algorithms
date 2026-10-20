@@ -25,3 +25,18 @@ simple search : n steps
 Binary search: log n steps
 
 check [binary_search.py](binary_search.py) for how to do it in python
+
+
+| Items          | simple search     | Binary search|
+| ---------------| ----------------- | -------------|
+| 100 item       | 100 guess         | 7 guesses    |
+| 4 billion items| 4 billion guesses | 32 guess     |
+<br>
+
+![Big O worst case scenarios](BigO-Worst-Case.webp)
+
+<br>
+<br>
+<br>
+
+# Chapter 2
