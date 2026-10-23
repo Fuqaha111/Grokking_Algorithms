@@ -90,3 +90,53 @@ arrays = standard access. lists = sequential access
 
 [simple sorting algorithm]()
 
+## Chapter 3 
+
+Recurrsion: is when you call a function inside itself
+
+def look_for_key(box):
+    for item in box:
+        if item.is_a_box():
+            look_for_key()
+        elif item_is_key():
+            print("Found Key")
+
+###### Base case and recursive case
+- because a function calls itself it can be easy to hit an infinite loop
+def countdown(i):
+    print(i)
+    countdown(i-1)
+
+When you write a function you have to tell it when to stop recursing the base case does that 
+- the base case is when the function doesnt call itself again after it
+
+def countdown (i):
+    print (i)
+    if i <= 0: #Base case
+        return
+    else:
+        countdown(i-1)
+
+#### The Stack
+
+- when you insert an item it gets added to the top of the list and when you read an item it reads from the top of the list
+- push: add item to the top     pop: read item from the top
+
+###### The call stack
+
+def greet(name):
+    print(f"hello {name}")
+    greet2(name)
+    print(getting ready to say goodbye)
+    bye()
+- This function greets you and calls two other functions
+
+Lets go through what happens when you call a function greet("Perla")
+ 
+ - your computer allocates a memory for the function call
+ - use the memory to set variable name to equal to "Perla" and saves it in memory
+ - Next you print hello perla then call the function greet2 again your computer alocates a memory for this function call it stores information for greet2 on top of greet
+ - Next you print how are you perla and then return from the function call, when this happens the box on top of the stack (greet2) gets poped off
+ 
+The idea is when you call a function inside a function, the calling function is paused in a partialy complete state All the variables and values from the function are still stored in memory
+
