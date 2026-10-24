@@ -13,3 +13,6 @@ def array_sum(arr):
 
 numbers = [2, 4, 6]
 print(array_sum(numbers))
+
+
+# testing to make sure account is swaped
