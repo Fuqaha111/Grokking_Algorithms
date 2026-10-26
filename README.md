@@ -140,3 +140,155 @@ Lets go through what happens when you call a function greet("Perla")
  
 The idea is when you call a function inside a function, the calling function is paused in a partialy complete state All the variables and values from the function are still stored in memory
 
+## Chapter 4
+
+when you face a new problem you ask yourself can I Devide and conquer (D&C)
+
+#### Devide and conquer 
+
+##### Example 1 
+you have a land 1680 by 640 you want to devide it to square plot and want to figure out what the largerset square you can use
+
+- Use devide and conquer strategy, D&C algorithms are reccursive algorithms
+
+To solve using devide and conquer you need two steps:
+- Figure the base case which is the simplest possible case 
+- devide and decrease until it reaches the base case
+
+The base case for the example is when on side of the square is a multiple of the other side 
+Reccursive case: you can fit two boxes of 640x640 in the 1680x640 land
+
+- then you are left by a land 640x400
+- you can fit 400x400 and you are left by land of 400x240
+- you can fir 240x240 and is left by 160x240
+- you can fit a 160x160 and is left by 160x80 (Base case as the 160 is a multiple of 80 so when devided by 2 80x80 and 80x80)
+
+so the largest square plot you can use us 80x80
+
+Euclid threorm
+
+##### Example 2
+
+you are given an array of integers [2, 4, 6]
+
+you have to add up all the elemnts of the array
+
+check [array_sum.py](array_sum.py)
+
+But how would you do it in a reccursive function
+- Step 1 (base case): if array is empty return 0
+- step 2: if not you need to move closer to an empty array
+[reccursive_sum.py](reccursive_sum.py)
+
+
+#### Quicksort
+Quicksort is a sorting algorithm much faster the selection sort
+
+simplest array to sort: empty arrays and arrays with one element (Base case)
+
+def Quicksort(arr):
+    if len(arr) < 2:
+        return arr
+
+if the array is bigger ex: 2 elements
+[1, 7]
+
+checks if first is greater than second if yes swap them
+
+if the array is 3 elements
+[33, 15, 10]
+
+- pick a pivot (any element in the array)
+- find the elemennts smaller than the pivot and the elements larger thna the pivot and place them on each side of the pivot
+- now you have 1- sub-array of elements smaller than the pivot 2- pivot 3- sub-array of elements larger than the pivot
+
+[15, 10] + [33] + []
+
+quicksort[15, 10] using earlier method for arrays of 2 elements
+
+[10, 15] + [33] + [] ==> [10, 15, 33]
+
+#### Inductive proofs
+inductive proofs are one way to prove your algorithm works, each inductive proof has two steps the inductive case and base case
+
+by proving that quicksort works in the base case (lists with 0 or 1 elements) in the inductive case you prove that it works for lists of size 2 and if it works for lists with size 2 it works for lists with size 3 and so on
+
+
+#### Revisting Big(O) notation
+
+suppose the computer does 10 operation per second
+
+| Array Size | o(log n) | o(n) | o(nlog n) | o(n<sup>2</sup>) | o(n!)|
+| -----------|----------|------|-----------|------------------|------|
+|       10 | 0.3s| 1s| 3.3s|10s| 4.2days
+|100| 0.6s| 10s| 66.4s| 166min  | 2.4* 10<sup>144</sup> years|
+|1000 | 1s | 100s| 996s | 27.7h| 1.27* 10<sup>3559</sup> years|
+
+
+Quicksort is tricky as it depends on how good the pivots are 
+- Worst csse scenario: o(n!)
+- Average case scenario: o(nlogn)
+
+mergesort always has a BigO of o(nlogn)
+
+#### Mergesort vs quicksort
+suppose you have an algotithm that prints each element in a list
+
+def print_item(arr):
+    for i in arr:
+        print i
+
+Now suppose you change this function to sleeo 1 second between before it prints
+
+from time import sleep
+def print_item2(arr):
+    for item in arr:
+        sleep(1)
+        print(item)
+
+both function loop through the list once so both o(n) but in practice the first one is faster than second one
+
+when the bigO is o(n) what it really means is c * n where c is a constant of a fixed amount of time 
+
+usualy we ignore constants because if the bigO is different the constant doesn't really matter 
+
+take Binary search vs simple search for example 
+
+- if simple search does an operation in 10 miliseconds 
+- and binary search does an operation in 1 second
+
+you might think wow simple search is faster
+but remember 
+- Big O for simple search is o(n) --> c * n
+- Big O for binary searcj is o(logn) --> c * logn
+
+Now suppose we have a list of 4 billion elements
+
+- Simple Search = 10 miliseconds * 4 billion = 463 days
+- Binary search = 1 secons * log4billion
+-                = 1 * 32 = 32 seconds
+
+But sometimes constants do make a difference for example both mergesort and quicksort has o (nlogn) but quicksorts constant is lower so it is faster
+
+
+Worst case for quicksort
+- if elements are already sorted and you take the first element
+
+[1, 2, 3, 4, 5, 6, 7, 8]
+{1}[2, 3, 4, 5, 6, 7, 8]
+    {2}[3, 4, 5, ,6 ,7 ,8]
+
+and so on n times
+each time there is there is o(n-1) number of operation  to split to the left and right side of the pivot and you so that n times
+
+So o(n!)
+
+Average case: you split them in the middle 
+
+so the stack builds logn times and each time o(n) operations
+
+So o(nlogn)
+
+
+
+## Chapter 5 (Hash Tables)

@@ -1,18 +1,13 @@
 """
-- This function loops through an array
-- Every time it passes a number it adds it to the value total
-- After the array finishes it return total
+what the code does:
+- it goes throgh each elemnt of the array and adds it to the total
 """
-
 
 def array_sum(arr):
     total = 0
-    for number in arr:
-        total += number
+    for i in range(len(arr)):
+        total += arr[i]
     return total
 
 numbers = [2, 4, 6]
 print(array_sum(numbers))
-
-
-# testing to make sure account is swaped
