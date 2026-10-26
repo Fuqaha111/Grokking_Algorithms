@@ -1,8 +1,12 @@
-def reccursive_sum(arr):
-    if arr == []:
-        return 0
+def quicksort(arr):
+    if len(arr) < 2:
+        return arr
     else:
-        return arr[0] + reccursive_sum(arr[1:])
+        pivot = arr[0]
+        less = [i for i in arr[1:] if i <= pivot]
+        more = [i for i in arr [1:] if i > pivot]
+
+        return quicksort(less) + [pivot] + quicksort(more)
     
-numbers = [2, 4, 6]
-print(reccursive_sum(numbers))
+numbers = [2, 1, 0, 5, 7, 8, 2]
+print (quicksort(numbers))
