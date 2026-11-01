@@ -1,12 +1,19 @@
-def quicksort(arr):
-    if len(arr) < 2:
-        return arr
-    else:
-        pivot = arr[0]
-        less = [i for i in arr[1:] if i <= pivot]
-        more = [i for i in arr [1:] if i > pivot]
-
-        return quicksort(less) + [pivot] + quicksort(more)
+def binary_search(target, arr):
+    l = 0
+    r = len(arr)
     
-numbers = [2, 1, 0, 5, 7, 8, 2]
-print (quicksort(numbers))
+
+    while l <= r:
+        mid = (l + r) //2
+        guess = arr[mid]
+
+        if target == guess:
+            return mid
+        elif target > guess:
+            l = mid + 1
+        else:
+            r = mid - 1
+
+numbers = [0, 1, 3, 6, 9, 100,  102, 1003, 50000]
+
+print(binary_search(50000, numbers))
