@@ -1,19 +1,21 @@
-def binary_search(target, arr):
-    l = 0
-    r = len(arr)
-    
+def find_smallest(numbers):
+    smallest = numbers[0]
+    smallest_index = 0
 
-    while l <= r:
-        mid = (l + r) //2
-        guess = arr[mid]
+    for i, n in enumerate(numbers[1:], start=1):
+        if smallest > n:
+            smallest = n
+            smallest_index = i
 
-        if target == guess:
-            return mid
-        elif target > guess:
-            l = mid + 1
-        else:
-            r = mid - 1
+    return smallest_index
 
-numbers = [0, 1, 3, 6, 9, 100,  102, 1003, 50000]
+def selection_sort(numbers):
+    sorted_list = []
+    for i in range(len(numbers)):
+        smallest = find_smallest(numbers)
+        sorted_list.append(numbers.pop(smallest))
+    return sorted_list
 
-print(binary_search(50000, numbers))
+
+
+print(selection_sort([1, 5, 21, 2, 5, 8, 0]))

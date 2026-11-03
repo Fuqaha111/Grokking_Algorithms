@@ -292,3 +292,123 @@ So o(nlogn)
 
 
 ## Chapter 5 (Hash Tables)
+
+suppose your a store owner and want to store the price of values of each item in an array, if you use binary search to look up each item's price it will o(logn) but there is a way to look it up in o(1) time
+
+#### Hash Functions
+a hash function maps a string to a number
+"Namaste" --> 7
+"hola" --> 4
+
+Requirements of a Hash Function 
+- consistant mapping: each time you write "apple" you get the same answer '4'
+- it should map different words to different numbers
+
+#### How is that useful
+
+suppose you have an array of 5 blocks  0-1-2-3-4
+
+you store apple in the 3rd index
+
+milk in the 0 index
+
+now you don't need to search for apple in the array just enter "apple" in your hash function and it will return where it is stored
+
+#### This works because
+- The hash function consistently maps the key string to the same index
+- The hash function maps different strings to different indexes
+- hash function know the length of the array and will only return valid indexes
+
+Hash table = Hash function + array
+
+you will never need to implement a hash table yourself all programming languages have a built in hash in python its {} or dict()
+
+
+#### Use cases 
+1- Using Hash tables for look-ups
+- storing contact information each name has a phone number associated with it
+
+2- Hash tables are used for look-ups at a larger scale
+- suppose you want to go to website http:/google.com
+- your computer has to transelate it to an IP address
+- google.com --> 74.125.239.133
+- the proccess of mapping web addresses to ip addresses is called DNS resolution
+
+#### prventing duplicate entry
+suppose you are running a voting booth, naturaly every person can vote just once, how do you make sure of that?
+
+using a hash table
+
+how it works
+
+Person comes in to vote --> check if person is in hash --> if yes: Kick them out
+--> if no: let them vote, add their name to hash
+
+[hash.py](hash.py) to see how it works
+
+#### Using a hash table as cache
+suppose you want to visit Facebook.com
+- you make a request to facebook's server
+- server thinks for a second and comes web page to send to you
+- you get the webpage
+
+Facebook servers have millions of people the couple of seconds adds up to them, is there a way to make the server do less work and become faster?
+
+suppose you have a niece that keeps asking you about planets, how far is the moon? how big is jupiter? Each time you get asked you have to google it and it takes time, but now suppose she keeps asking you how far is the moon? eventualy you will memorize the answer and no longer have to google it. this is what cachinhg is, websites remember the data instead of recaculating it
+
+you --> if logged in --> webpage
+you --> if not logged in --> recaculating --> webpage
+
+[cache.py](cache.py)
+
+#### Caching has two advantages
+- You get the webpage faster
+- facebook servers has to do less work
+
+All the caching and the data is done in a hash
+
+Facebook isn't just caching its home page it also caches its about, contract ...
+
+facebook.com/about --> data for the about page
+facebook.com --> data for the home page
+
+when you request a URL if it's hashed you get the data from the hash, if not the server does some work and sends you the data
+
+#### Collisions 
+
+suppose you have an array with 26 slots, and you want to store the price of fruits in each, you chose to do it in based on the alphabitical order of the first character
+- apple goes in the first slot: 0.67
+- Banana goes in the second slot: 0.81
+- but now you want to store an avacado, where does it go?
+
+this is called a colision (when two keys are asssigned the same slot)
+
+the simplest way to deal with this is to make a linked list inside the first slot in the array [apple, 0.67, points to where avacado is stored]
+
+but now suppose you are working to store price of items in a store where there are a lot of itemes that begin in a
+
+- your hash function is important and ideally maps keys evenly across the hash
+- if the linked list gets long it will slow down the hash table but they wonn't get long if you use a good hash function
+
+#### performance of hash tables
+
+##### Load factor
+- load factor = count of items of occupied slots in the array / total slots in the array
+- if you want to store a 100 items in 50 slots the load factor = 2
+- if load factor > 1 means you have more items than slots
+
+once your load factor increases you need more slots in array this is called resizing
+
+The rule of thumb is to make the size of the array double the original size then insert your items again using hash function
+
+lower load factor = lower collisions
+
+A good hash functions: distributes values evenly across array
+
+A bad hash function: groups them together and create collision
+
+
+
+
+
+                                    
