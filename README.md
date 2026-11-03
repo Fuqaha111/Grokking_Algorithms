@@ -94,29 +94,33 @@ arrays = standard access. lists = sequential access
 
 Recurrsion: is when you call a function inside itself
 
+```python
 def look_for_key(box):
     for item in box:
         if item.is_a_box():
             look_for_key()
         elif item_is_key():
             print("Found Key")
-
+```
 ###### Base case and recursive case
 - because a function calls itself it can be easy to hit an infinite loop
+  
+```python
 def countdown(i):
     print(i)
     countdown(i-1)
-
+```
 When you write a function you have to tell it when to stop recursing the base case does that 
 - the base case is when the function doesnt call itself again after it
 
+```python
 def countdown (i):
     print (i)
     if i <= 0: #Base case
         return
     else:
         countdown(i-1)
-
+```
 #### The Stack
 
 - when you insert an item it gets added to the top of the list and when you read an item it reads from the top of the list
@@ -124,11 +128,13 @@ def countdown (i):
 
 ###### The call stack
 
+```python
 def greet(name):
     print(f"hello {name}")
     greet2(name)
     print(getting ready to say goodbye)
     bye()
+```
 - This function greets you and calls two other functions
 
 Lets go through what happens when you call a function greet("Perla")
@@ -186,10 +192,11 @@ Quicksort is a sorting algorithm much faster the selection sort
 
 simplest array to sort: empty arrays and arrays with one element (Base case)
 
+```python
 def Quicksort(arr):
     if len(arr) < 2:
         return arr
-
+```
 if the array is bigger ex: 2 elements
 [1, 7]
 
@@ -234,18 +241,20 @@ mergesort always has a BigO of o(nlogn)
 #### Mergesort vs quicksort
 suppose you have an algotithm that prints each element in a list
 
+```python
 def print_item(arr):
     for i in arr:
-        print i
-
+      print i
+```
 Now suppose you change this function to sleeo 1 second between before it prints
 
+```python
 from time import sleep
 def print_item2(arr):
     for item in arr:
         sleep(1)
         print(item)
-
+```
 both function loop through the list once so both o(n) but in practice the first one is faster than second one
 
 when the bigO is o(n) what it really means is c * n where c is a constant of a fixed amount of time 
